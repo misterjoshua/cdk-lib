@@ -19,14 +19,5 @@ export class CdkLib extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, props: CdkLibProps = {}) {
     super(scope, id);
 
-    const queue = new sqs.Queue(this, 'CdkLibQueue', {
-      visibilityTimeout: props.visibilityTimeout || cdk.Duration.seconds(300)
-    });
-
-    const topic = new sns.Topic(this, 'CdkLibTopic');
-
-    topic.addSubscription(new subs.SqsSubscription(queue));
-
-    this.queueArn = queue.queueArn;
   }
 }
