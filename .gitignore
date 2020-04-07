@@ -4,6 +4,7 @@
 node_modules
 
 *.tgz
+.idea
 
 # CDK asset staging directory
 .cdk.staging
